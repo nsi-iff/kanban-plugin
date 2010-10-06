@@ -1,0 +1,33 @@
+= Plugin Kanban Redmine (modificado por Marianna Reis - NSI)
+
+O Redmine plugin Kanban é usado para gerenciar tarefas de acordo com o sistema Kanban de gerenciamento de projetos.
+
+== Instalação e Configuração (a instalação é a mesma do plugin original, mudanças apenas no processo de configuração)
+
+1. Instale a gem AASM: sudo gem instalar AASM
+2. Para instalar o plugin, basta coloca-lo na pasta raiz/vendor/plugins, com o nome 'redmine_kanban'
+3. Executar o comando 'rake db:migrate_plugins' a partir da pasta raiz
+4. Reiniciar o servidor
+5. Logar no Redmine e configurar o plugin (Administração -> Plugins -> Configurar) - ***
+>>> Utilize a configuração recomendada, indicada na figura 'configurar- kanban.png'
+6. É preciso ativar o plugin kanban para cada projeto em que se deseje utilizá-lo (No projeto -> Configurações -> Módulos -> Marcar o checkbox Kanban)
+7. O plugin em linhas gerais já está configurado como o esperado. (Vide a figura 'tela-kanban.png' que ilustra a 'cara' que o kanban deve ter)
+
+*** Recomendações
+
+1. Como se pode observar no passo 4, 2 novas situações de tarefas serão utilizadas, e precisam seguir o seguinte workflow:
+
+Desenvolvedores
+    Selecionada <-> Em Andamento
+    Em Andamento <-> Resolvido
+
+Gerentes
+   Nova <-> Selecionada
+   Resolvido <-> Fechado (isso já funciona assim!)
+
+2. É preciso executar também as configurações expressas nos arquivos: 'criterio-de-aceitacao.png' e 'criterio-de-aceitacao-por-projeto.png'
+
+Licença ==
+
+Este plugin está licenciado sob a licença GNU GPL v2. Veja COPYRIGHT.txt e GPL.TXT para mais detalhes.
+

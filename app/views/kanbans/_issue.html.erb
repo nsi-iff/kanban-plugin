@@ -1,0 +1,25 @@
+<% if issue.project_id == @project.id %>
+<li id="issue_<%= issue.id %>" class="<%= over_pane_limit?(limit, issue_counter) if defined?(limit) -%> <%= kanban_issue_css_classes(issue) %>">
+  <div class="issue-details">
+
+    <div class="issue-details-header">
+      <div class="icons">
+
+      <% if issue.hitch == true %>
+        <%= check_box issue.hitch, issue.id.to_s, :checked => true, :name => 'switchBox', :onclick => "#{remote_function(:url  => {:action => "update_hitch_of_issue"}, :with => "'issue_id=#{issue.id}'")}" %>
+      <% else %>
+        <%= check_box issue.hitch, issue.id.to_s, :checked => false, :name => 'switchBox', :onclick => "#{remote_function(:url  => {:action => "update_hitch_of_issue"}, :with => "'issue_id=#{issue.id}'")}" %>
+      <% end %>
+
+        <%= issue_icon_link(issue) %>
+        <%= call_hook(:view_kanbans_issue_details, :issue => issue) %>
+        <%= image_tag('comment.png', :class => 'updated-note', :alt => l(:kanban_text_updated_issue), :title => l(:kanban_text_updated_issue)) if updated_note_on_issue?(issue) %>
+      </div>
+      <a href="<%= issue_url(issue) %>">#<%= h(issue.id) %></a> - <%= h(issue.project.name) if issue.project %>
+    </div>
+
+    <div class="issue-details-body"><%= h(issue.subject) %></div>
+  </div>
+</li>
+<% end %>
+

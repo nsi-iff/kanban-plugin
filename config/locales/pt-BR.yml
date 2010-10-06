@@ -1,0 +1,43 @@
+pt-BR:
+  kanban_title: Kanban
+  kanban_text_incoming: Tarefas Novas
+  kanban_text_backlog: Tarefas Aprovadas(não usar)
+  kanban_text_selected_requests: Tarefas Selecionadas
+  kanban_text_quick_tasks: Tarefas Prioritárias
+  kanban_text_user: Usuário
+  kanban_text_testing: Em Processo de Aceitação
+  kanban_text_finished_requests: Aceito
+  kanban_text_canceled_requests: Requisições Canceladas
+  kanban_text_general_settings: Configurações Gerais
+  kanban_text_pane_settings: Painel de Configurações
+  kanban_text_pane_settings_description: "Selecione o status de tarefa que você deseja associar com cada parte do kanban. As tarefas serão atualizadas para esses status quando forem movidas arrastando e soltando."
+  kanban_text_general_help: "Você pode arrastar e soltar tarefas entre os painéis para mudar o seu status, as configurações desse processo são definidas pelo administrador em Papéis e Permissões."
+  kanban_label_incoming_pane: Tarefas Novas
+  kanban_label_backlog_pane: Tarefas Aprovadas(não usar)
+  kanban_label_selected-requests_pane: Tarefas Selecionadas
+  kanban_label_selected_pane: Tarefas Selecionadas
+  kanban_label_quick-tasks_pane: Tarefas Prioritárias
+  kanban_label_active_pane: Em Desenvolvimento
+  kanban_label_testing_pane: Em Processo de Aceitação
+  kanban_label_finished_pane: Aceito
+  kanban_label_canceled_pane: Cancelado
+  kanban_label_limit: Número máximo de itens
+  kanban_label_day_limit: Número de dias
+  kanban_text_active: Em desenvolvimento
+
+  kanban_label_staff_role: Papel do qual as Requisições Atribuídas são vistas no kanban
+  kanban_label_incoming_project: Projeto para usar para o painel de Tarefas Novas
+  kanban_text_error_saving: Erro salvando listas. Por favor atualize a página e tente novamente.
+  kanban_text_notice_sync: As listas do kanban foram sincronizadas.
+  kanban_text_saved: Listas atualizadas.
+  field_state: "Estado"
+  kanban_text_nothing: "(Sem tarefas)"
+  kanban_text_color_help: "Ajuda com Cores"
+  kanban_text_behind_schedule_color: "Anteriormente Agendada - <span>Cabeçalho Laranja</span>"
+  kanban_text_overdue_color: "Vencida - <span>Cabeçalho Vermelho</span>"
+  kanban_text_over_wip_color: "Trabalho Em Progresso Acima do limite - <span>Cabeçalho Rosa Com Detalhes</span>"
+  kanban_text_normal_color: "Normal - <span>Amarelo</span>"
+  kanban_text_assigned_to_me_color: "Atribuido para mim - <span>Cabeçalho Verde</span>"
+  kanban_text_updated_issue: "Tarefa Atualizada"
+  kanban_text_sync: "Sincronizar"
+
