@@ -10,8 +10,8 @@ Dispatcher.to_prepare :redmine_kanban do
   require_dependency 'issue'
   # Guards against including the module multiple time (like in tests)
   # and registering multiple callbacks
-  unless Issue.included_modules.include? RedmineKanban::IssuePatchKanban
-    Issue.send(:include, RedmineKanban::IssuePatchKanban)
+  unless Issue.included_modules.include? RedmineKanban::IssuePatch
+    Issue.send(:include, RedmineKanban::IssuePatch)
   end
 end
 
