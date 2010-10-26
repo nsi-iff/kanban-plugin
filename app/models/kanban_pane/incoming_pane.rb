@@ -5,7 +5,11 @@ class KanbanPane::IncomingPane < KanbanPane
     conditions = ARCondition.new
     conditions.add ["status_id = ?", settings['panes']['incoming']['status']]
 
-    return Issue.visible.find(:all,
+#    return Issue.visible.find(:all,
+#                              :limit => settings['panes']['incoming']['limit'],
+#                              :order => "#{Issue.table_name}.created_on ASC",
+#                              :conditions => conditions.conditions)
+return Issue.visible.find(:all,
                               :limit => settings['panes']['incoming']['limit'],
                               :order => "#{Issue.table_name}.created_on ASC",
                               :conditions => conditions.conditions)
