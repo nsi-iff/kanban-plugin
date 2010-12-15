@@ -12,6 +12,7 @@ O Redmine plugin Kanban é usado para gerenciar tarefas de acordo com o sistema 
 >>> Utilize a configuração recomendada, indicada na figura 'configurar- kanban.png'
 6. É preciso ativar o plugin kanban para cada projeto em que se deseje utilizá-lo (No projeto -> Configurações -> Módulos -> Marcar o checkbox Kanban)
 7. O plugin em linhas gerais já está configurado como o esperado. (Vide a figura 'tela-kanban.png' que ilustra a 'cara' que o kanban deve ter)
+8. Em 24/11/2010 foi adicionada a funcionalidade de escolher quais tipos de tarefa que deseja exibir no kanban. Ao criar ou alterar um tipo de tarefa, pode-se escolher se tarefas daquele tipo serão ou não exibidas no Kanban.
 
 *** Recomendações
 

@@ -1,4 +1,5 @@
-<% if issue.project_id == @project.id %>
+<% if issue.project_id == @project.id and issue.tracker.see_in_kanban == true %>
+
 <li id="issue_<%= issue.id %>" class="<%= over_pane_limit?(limit, issue_counter) if defined?(limit) -%> <%= kanban_issue_css_classes(issue) %>">
   <div class="issue-details">
 
