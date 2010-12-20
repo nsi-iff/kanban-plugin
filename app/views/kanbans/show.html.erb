@@ -64,7 +64,7 @@
     <% project_users = @kanban.users %>
     <% @kanban.users = [] %>
     <% for user in project_users %>
-      <% @kanban.users << user if (user.methods.include? 'project_ids' and user.project_ids.include? @project.id) %>
+      <% @kanban.users << user if (user.methods.include? 'project_ids' and user.project_ids.include? @project.id and user.status ==1) %>
     <% end%>
 
     <%= render :partial => 'user', :collection => @kanban.users %>
