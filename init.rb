@@ -1,6 +1,6 @@
 require 'redmine'
 # require_dependency 'issue_patch_kanban'
-
+require_dependency 'issue_patch'
 require 'aasm'
 
 # Patches to the Redmine core.
@@ -27,7 +27,7 @@ Redmine::Plugin.register :redmine_kanban do
   requires_redmine :version_or_higher => '0.9.0'
   project_module :kanban do
     permission(:view_kanban, {:kanbans => [:show]})
-    permission(:edit_kanban, {:kanbans => [:update, :sync]})
+    permission(:edit_kanban, {:kanbans => [:update, :sync, :update_hitch_of_issue]})
     permission(:manage_kanban, {})
   end
 

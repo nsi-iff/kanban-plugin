@@ -9,6 +9,7 @@ class KanbanPane
 
   def get_issues(options={})
     nil
+    #Issue.all
   end
 
   def self.pane_name
@@ -19,7 +20,7 @@ class KanbanPane
     pane = self.pane_name
     (settings['panes'] && settings['panes'][pane] && !settings['panes'][pane]['status'].blank?)
   end
-  
+
   private
 
   def missing_settings(pane, options={})
@@ -42,3 +43,4 @@ class KanbanPane
   end
 
 end
+

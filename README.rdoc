@@ -1,34 +1,82 @@
-= Plugin Kanban Redmine (modificado por Marianna Reis - NSI)
+= Manual de instalação e configuração do Plugin Kanban Redmine (modificado por Marianna Reis - NSI)
 
 O Redmine plugin Kanban é usado para gerenciar tarefas de acordo com o sistema Kanban de gerenciamento de projetos.
 
-== Instalação e Configuração (a instalação é a mesma do plugin original, mudanças apenas no processo de configuração)
+== Instalação e Configuração
+Alguns passos podem ser desnecessários, uma vez que o redmine pode estar configurado. Entretanto, vale executar e conferir todos os itens para que o plugin funcione corretamente. Vale a pena também executar os passos no servidor de demonstração amtes de colocá-los em produção para análise de impacto de modificações.
 
-1. Instale a gem AASM: sudo gem instalar AASM
-2. Para instalar o plugin, basta coloca-lo na pasta raiz/vendor/plugins, com o nome 'redmine_kanban'
-3. Executar o comando 'rake db:migrate_plugins' a partir da pasta raiz
+1. Instale a gem 'aasm': sudo gem install aasm (caso a gema esteja instalada, ignore este passo)
+2. Para instalar o plugin, basta coloca-lo na pasta do redmine seguindo o caminho redmine/vendor/plugins, com o nome 'redmine_kanban' (remova a pasta do plugin anterior)
+3. Executar o comando 'rake db:migrate_plugins' a partir da pasta raiz do redmine
 4. Reiniciar o servidor
-5. Logar no Redmine e configurar o plugin (Administração -> Plugins -> Configurar) - ***
->>> Utilize a configuração recomendada, indicada na figura 'configurar- kanban.png'
-6. É preciso ativar o plugin kanban para cada projeto em que se deseje utilizá-lo (No projeto -> Configurações -> Módulos -> Marcar o checkbox Kanban)
-7. O plugin em linhas gerais já está configurado como o esperado. (Vide a figura 'tela-kanban.png' que ilustra a 'cara' que o kanban deve ter)
-8. Em 24/11/2010 foi adicionada a funcionalidade de escolher quais tipos de tarefa que deseja exibir no kanban. Ao criar ou alterar um tipo de tarefa, pode-se escolher se tarefas daquele tipo serão ou não exibidas no Kanban.
+5. Logar no Redmine e configurar:
 
-*** Recomendações
+    5.1 Menu Administração -> Plugins -> Kanban -> clique em Configurar
+        5.1.1 Utilize a configuração definida no arquivo de imagem 'configurar - kanban.png' que se encontra no diretório raiz do plugin.
+Caso alguma 'situação de tarefa' não se encontre cadastrada no redmine ('Nova', 'Selecionada', 'Em andamento', 'Resolvida', 'Fechada'), leia “Criando situações de tarefas” no final deste documento.
 
-1. Como se pode observar no passo 4, 2 novas situações de tarefas serão utilizadas, e precisam seguir o seguinte workflow:
+    5.2 Menu Administração -> Papéis e Permissões, seção 'Kanban':
+        5.2.1 Para Gerente e Coordenador, marcar as permissões 'View Kanban', 'Edit Kanban', 'Manage Kanban'
+        5.2.2 Para Desenvolvedor, marcar as permissões 'View Kanban' e 'Edit Kanban'
 
-Desenvolvedores
-    Selecionada <-> Em Andamento
-    Em Andamento <-> Resolvido
+    5.3 Menu Administração -> Fluxo de trabalho (workflow):
+        5.3.1 Os tipos de tarefas que serão utilizadas (ver lista abaixo) precisam seguir o seguinte workflow:
+	Perfil: Desenvolvedores
+		Para as tarefas listadas abaixo, alterar o workflow:
+Selecionada <-> Em Andamento e
+Em Andamento <-> Resolvida
+	Perfil: Gerentes
+		Para as tarefas listadas abaixo, alterar o workflow:
+Nova <-> Selecionada e
+Resolvida <-> Fechada
 
-Gerentes
-   Nova <-> Selecionada
-   Resolvido <-> Fechado (isso já funciona assim!)
+Tipos de tarefas que devem sofrer tais alterações (para ambos os perfis Desenvolvedor e Gerente):
+Bug
+Codificação
+Defeito
+Documentação
+Especificação
+Funcionalidade
+Implantação
+Manutenção
+Planejamento
+Revisão
+Refatoramento
+Suporte
+Testes
+Verificação
 
-2. É preciso executar também as configurações expressas nos arquivos: 'criterio-de-aceitacao.png' e 'criterio-de-aceitacao-por-projeto.png'
+Obs.: Caso tenha algum tipo de tarefa na lista acima e que não esteja cadastrada, siga os passos descritos em “Criando tipos de tarefas”.
 
-Licença ==
+    5.4 Menu Administração -> Campos personalizados:
+        5.4.1 Acesse a aba ‘tarefas’ e procure na lista por ‘Critério de Aceitação’. Caso não encontre, clique em “Novo campo personalizado” e cadastre conforme definido no arquivo 'criterio-de-aceitacao.png' disposto na raiz deste plugin, marcando os tipos de tarefas do item 5.3.1 deste manual.
+
+    5.5. Menu Administração -> Tipos de tarefas:
+        5.5.1 Para os tipos de tarefa listados no item 5.3.1, clique em seus nomes para edição e deixe marcada a opção "Exibir no Kanban" (este passo é importantíssimo!!)
+        5.5.2 É preciso executar também as configurações para o projeto expressas em 'criterio-de-aceitacao-por-projeto.png', marcando o campo critério de aceitação para o projeto.
+
+    5.6 É preciso ativar o plugin kanban para cada projeto em que se deseje utilizá-lo (No projeto -> Configurações -> Módulos -> Marcar a caixa Kanban)
+
+Com isso o plugin pode ser utilizado sem maiores problemas.
+
+==== Criando tipos de tarefas ====
+
+1. Menu Administração -> Tipo de tarefas
+2. Clique em ‘Novo Tipo’
+3. Na tela de criação do tipo, preencher:
+3.1 O nome;
+3.2 Na lista de projetos marcar aquele que será contemplado com o novo tipo de tarefa;
+3.3 Marcar a caixa “Exibir no Kanban”
+3.4 Copiar fluxo de trabalho de: Escolher ‘Funcionalidade’
+
+==== Criando situações de tarefas ====
+
+1. Menu Administração -> Situação das tarefas
+2. Clique em 'novo', digite o nome da nova situação de tarefa e em seguida clique em 'criar'
+3. Repíta os passos para as tarefas não-existentes no redmine
+4. Para o caso da situação 'Fechada' , marcar a checkbox 'Tarefa Fechada'
+
+== Licença ==
 
 Este plugin está licenciado sob a licença GNU GPL v2. Veja COPYRIGHT.txt e GPL.TXT para mais detalhes.
 
