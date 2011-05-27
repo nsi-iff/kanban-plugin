@@ -4,7 +4,8 @@
 
 <div class="contextual">
   <% if User.current.allowed_to?(:edit_kanban, nil, :global => true) %>
-  <%= link_to(l(:kanban_text_sync), sync_kanban_url, :method => :put, :class => 'icon icon-reload') %>
+      <%= link_to(l(:kanban_button_add_task), {:controller => 'issues', :action => 'new', :project_id => @project }) %>
+      <%= link_to(l(:kanban_text_sync), sync_kanban_url, :method => :put, :class => 'icon icon-reload') %>
   <% end %>
   <%= link_to_function(l(:kanban_text_color_help), "$('color-help').toggle();", :class => 'icon icon-info') %>
 </div>

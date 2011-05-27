@@ -33,7 +33,7 @@ div.pane li.over-limit .issue-details-header { background-color: #ffd6d6; }
 ol#backlog-issues ol, ol#quick-issues ol { padding-left: 15px; margin-bottom: 15px;}
 
 /* Issue rows */
-li.issue { cursor: move; border:1px dashed #ccc; margin-bottom:5px; background-color: #FFFFDD;}
+li.issue { cursor: move; border:1px dashed #ccc; margin-bottom:5px; background-color: #FFFFFF;}
 li.issue .issue-details-body { padding: 3px 3px; font-size: smaller; }
 li.issue .issue-details-header {padding: 1px 3px; border-bottom:1px solid #ccc;}
 
@@ -41,17 +41,19 @@ li.issue.assigned-to-other { }
 li.issue.assigned-to-other .issue-details-header { }
 li.issue.assigned-to-other .issue-details {  }
 
-
-
 .hitch { }
-.hitch .issue-details-header {background-color: #FF0000; color: #000000 }
-.hitch .issue-details { background-color: #FF0000 }
+.hitch .issue-details-header {background-color: #FF0000; color: #ffffff }
+.hitch .issue-details { background-color: #FF0000; color: #ffffff }
 
 
-/* based on #a2eeac */
+/* based on #a2eeac 
 li.issue.assigned-to-me {  }
 li.issue.assigned-to-me .issue-details-header { background-color:#dcf8df; }
 li.issue.assigned-to-me .issue-details-body { }
+*/
+
+.ancestor .issue-details-header {background-color: #00CFFF; color: #000000 }
+.descendant .issue-details-header {background-color: #4876FF; color: #000000 }
 
 /* Overdue and behind schedule */
 li.issue.issue-behind-schedule .issue-details-header {background-color: #f66914; color: #FFFFFF}
@@ -71,4 +73,3 @@ div.icons .updated-note {position: absolute; left: -16px; top: -8px; } /* Allow 
 #color-help .over-wip-color span { background-color: #ffd6d6; }
 
 .icon-info  { background-image: url(../images/information.png); }
-
