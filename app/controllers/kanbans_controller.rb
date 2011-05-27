@@ -87,7 +87,8 @@ class KanbansController < ApplicationController
   # the user in if they have any roles with the correct permission
   def authorize(ctrl = params[:controller], action = params[:action])
     allowed = User.current.allowed_to?({:controller => ctrl, :action => action}, nil, { :global => true})
-    allowed ? true : deny_access
+    #allowed ? true : deny_access
+    allowed ? false : deny_access
   end
 
   helper_method :allowed_to_edit?

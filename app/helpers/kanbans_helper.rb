@@ -53,6 +53,11 @@ module KanbansHelper
 
     css << ' issue-behind-schedule' if issue.behind_schedule?
     css << ' issue-overdue' if issue.overdue?
+    if issue.children? #descendants.present?
+        css << ' ancestor'
+    elsif issue.parent_issue_id != nil #ancestors.present?
+        css << ' descendant'
+    end
     css
   end
 
@@ -65,7 +70,13 @@ module KanbansHelper
                    })
       link_to(img, :controller => 'issues', :action => 'show', :id => issue)
     else
-      link_to(image_tag('ticket.png', :style => 'float:left;'), :controller => 'issues', :action => 'show', :id => issue)
+      #link_to(image_tag('ticket.png', :style => 'float:left;'), :controller => 'issues', :action => 'show', :id => issue)
+      #link para sub tarefa criado por Aline de Oliveira Freitas
+      link_to(image_tag('ticket.png', :style => 'float:left;'), :controller => 'issues', :action => 'new', 
+      
+      :project_id => @project, :issue => {:parent_issue_id => issue}
+      
+       )
     end
   end
 
