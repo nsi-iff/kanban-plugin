@@ -41,3 +41,5 @@ en:
   kanban_text_overdue_color: "Overdue - <span>Red Header</span>"
   kanban_text_over_wip_color: "Over Work in Progress Limit - <span>Pink header and details</span>"
   kanban_text_updated_issue: "Updated issue"
+  kanban_text_sync: "Sync"
+  kanban_button_add_task: "New Task"

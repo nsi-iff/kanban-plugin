@@ -41,4 +41,5 @@ pt-BR:
   kanban_text_updated_issue: "Tarefa Atualizada"
   kanban_text_sync: "Sincronizar"
   field_see_in_kanban: "Exibir no Kanban"
+  kanban_button_add_task: "Nova Tarefa"
 
