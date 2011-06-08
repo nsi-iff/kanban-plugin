@@ -51,7 +51,7 @@ module KanbansHelper
       css << ' hitch'
     end
 
-    css << ' issue-behind-schedule' if issue.behind_schedule?
+    #css << ' issue-behind-schedule' if issue.behind_schedule?
     css << ' issue-overdue' if issue.overdue?
     if issue.children? #descendants.present?
         css << ' ancestor'
@@ -62,22 +62,21 @@ module KanbansHelper
   end
 
   def issue_icon_link(issue)
-    if Setting.gravatar_enabled? && issue.assigned_to
-      img = avatar(issue.assigned_to, {
-                     :class => 'gravatar icon-gravatar',
-                     :size => 10,
-                     :title => l(:field_assigned_to) + ": " + issue.assigned_to.name
-                   })
-      link_to(img, :controller => 'issues', :action => 'show', :id => issue)
-    else
+#    if Setting.gravatar_enabled? && issue.assigned_to
+#      img = avatar(issue.assigned_to, {
+#                     :class => 'gravatar icon-gravatar',
+#                     :size => 10,
+#                     :title => l(:field_assigned_to) + ": " + issue.assigned_to.name
+#                   })
+#      link_to(img, :controller => 'issues', :action => 'show', :id => issue)
+#    else
       #link_to(image_tag('ticket.png', :style => 'float:left;'), :controller => 'issues', :action => 'show', :id => issue)
+ 
       #link para sub tarefa criado por Aline de Oliveira Freitas
-      link_to(image_tag('ticket.png', :style => 'float:left;'), :controller => 'issues', :action => 'new', 
-      
-      :project_id => @project, :issue => {:parent_issue_id => issue}
-      
+      link_to(image_tag('ticket.png', :style => 'float:left;'), :controller => 'issues', :action => 'new',      
+      :project_id => @project, :issue => {:parent_issue_id => issue}      
        )
-    end
+#    end
   end
 
   def column_configured?(column)
