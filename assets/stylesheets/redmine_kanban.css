@@ -60,7 +60,7 @@ li.issue.issue-behind-schedule .issue-details-header a {color: #FFFFFF}
 */
 
 /* Overdue and behind schedule */
-li.issue.issue-overdue .issue-details-body {background-color: #f00;}
+li.issue.issue-overdue .issue-details-body {background-color: #f00; color: #fff;}
 
 div.icons {display: inline; position: relative;}
 div.icons .updated-note {position: absolute; left: -16px; top: -8px; } /* Allow updated-notes to stack on icons */
