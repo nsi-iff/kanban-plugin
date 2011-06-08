@@ -43,7 +43,6 @@ li.issue.assigned-to-other .issue-details {  }
 
 .hitch { }
 .hitch .issue-details-header {background-color: #FF0000; color: #ffffff }
-.hitch .issue-details { background-color: #FF0000; color: #ffffff }
 
 
 /* based on #a2eeac 
@@ -55,10 +54,13 @@ li.issue.assigned-to-me .issue-details-body { }
 .ancestor .issue-details-header {background-color: #00CFFF; color: #000000 }
 .descendant .issue-details-header {background-color: #4876FF; color: #000000 }
 
-/* Overdue and behind schedule */
+/* Behind schedule 
 li.issue.issue-behind-schedule .issue-details-header {background-color: #f66914; color: #FFFFFF}
 li.issue.issue-behind-schedule .issue-details-header a {color: #FFFFFF}
-li.issue.issue-overdue .issue-details-header {background-color: #f00;}
+*/
+
+/* Overdue and behind schedule */
+li.issue.issue-overdue .issue-details-body {background-color: #f00;}
 
 div.icons {display: inline; position: relative;}
 div.icons .updated-note {position: absolute; left: -16px; top: -8px; } /* Allow updated-notes to stack on icons */
@@ -66,10 +68,18 @@ div.icons .updated-note {position: absolute; left: -16px; top: -8px; } /* Allow 
 .drop-accepted { background-color:#FFFFEE; height: 32px; margin-bottom:5px; border: 1px dashed #000000; }
 .general-help {font-size: 90%; font-style: italic;}
 
+#color-help .orphan-color span { background-color: #FFFFFF; }
+#color-help .hitch-color span { background-color: #FF0000; color: #FFFFFF; }
+#color-help .ancestor-color span { background-color: #00CFFF; color: #000000; }
+#color-help .descendant-color span { background-color: #4876FF; color: #000000; }
+#color-help .overdue-color span { background-color: #f00; color: #fff; }
+/* Previous, not needed ones
 #color-help .normal-color span { background-color: #FFFFDD; }
 #color-help .assigned-to-me-color span { background-color: #dcf8df; }
 #color-help .behind-schedule-color span { background-color: #f66914; }
 #color-help .overdue-color span { background-color: #f00; }
 #color-help .over-wip-color span { background-color: #ffd6d6; }
+*/
+
 
 .icon-info  { background-image: url(../images/information.png); }
